@@ -31,7 +31,7 @@ steps:
 - script: dotnet build $(solution) --configuration $(buildConfiguration)
   displayName: 'Build Solution'
 
-- script: dotnet build $(solution) --configuration $(buildConfiguration) --no-build --collect:"XPlat Code Coverage"
+- script: dotnet test $(solution) --configuration $(buildConfiguration) --no-build --collect:"XPlat Code Coverage"
   displayName: 'Test Solution'
 
 - task: Docker@2
