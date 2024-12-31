@@ -17,15 +17,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    pwsh: true
-    script: |
-      Write-Host "Testing with PowerShell Core"
-      $PSVersionTable
-  displayName: 'Teste com PowerShell Core'
-
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
