@@ -6,14 +6,11 @@
 trigger:
 - main
 
-#pool:
-#  vmImage: ubuntu-latest
 pool:
-  name: MeuAgentPool
-  
+  vmImage: ubuntu-latest
+
 variables:
-  #solution: './APITempoDIO/*.sln'
-  solution: 'C:\Users\valdir\devcode\dio\bootcamp-az-204\implementar-api-na-nuvem\DIO-API\APITempoDIO\APITempoDIO.sln'
+  solution: './APITempoDIO/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
