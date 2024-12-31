@@ -17,6 +17,20 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- script: |
+    echo "Diretório atual:"
+    pwd
+    echo "Conteúdo do diretório:"
+    dir
+  displayName: 'Listar diretório (Command)'
+  
+- script: |
+    echo "Diretório do agente:"
+    echo $(Agent.BuildDirectory)
+    echo "Diretório de trabalho:"
+    echo $(System.DefaultWorkingDirectory)
+  displayName: 'Mostrar diretórios do sistema'
+    
 - task: UseDotNet@2
   displayName: "Install. .Net SDK"
   inputs:
