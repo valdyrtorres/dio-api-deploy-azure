@@ -29,3 +29,4 @@ steps:
 - script: dotnet build $(solution) --configuration $(buildConfiguration)
   displayName: 'Build Solution'
 
+
