@@ -36,5 +36,5 @@ steps:
     containerRegistry: 'acrapidemovtbsc'
     repository: 'api-dio-test'
     command: 'buildAndPush'
-    Dockerfile: 'C:\Users\valdir\devcode\dio\bootcamp-az-204\implementar-api-na-nuvem\DIO-API\APITempoDIO\APITempoDIO\**Dockerfile'
+    Dockerfile: 'C:\Users\valdir\devcode\dio\bootcamp-az-204\implementar-api-na-nuvem\DIO-API\APITempoDIO\APITempoDIO\Dockerfile'
 
