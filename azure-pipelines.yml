@@ -14,18 +14,25 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
-    
-- task: UseDotNet@2
-  displayName: "Install. .Net SDK"
-  inputs:
-    packageType: 'sdk'
-    version: '8.x'
+stages:
+- stage: InstallAndRestore
+  displayName: 'Instalar e Restaurar'
+  jobs:
+  - job: InstallRestoreJob
+    steps:
+    - task: UseDotNet@2
+      displayName: "Install .Net SDK"
+      inputs:
+        packageType: 'sdk'
+        version: '8.x'
+    - script: dotnet restore $(solution)
+      displayName: 'Restore Solution'
 
-- script: dotnet restore $(solution)
-  displayName: 'Restore Solution'
-  
-- script: dotnet build $(solution) --configuration $(buildConfiguration)
-  displayName: 'Build Solution'
-
-
+- stage: Build
+  displayName: 'Construir Solução'
+  dependsOn: InstallAndRestore # Depende do estágio InstallAndRestore
+  jobs:
+  - job: BuildJob
+    steps:
+    - script: dotnet build $(solution) --configuration $(buildConfiguration)
+      displayName: 'Build Solution'
