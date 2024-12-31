@@ -9,7 +9,7 @@ trigger:
 #pool:
 #  vmImage: ubuntu-latest
 pool:
-  name: MyAgentPool
+  name: MeuAgentPool
   
 variables:
   solution: '*.sln'
