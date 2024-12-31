@@ -13,7 +13,7 @@ pool:
   
 variables:
   #solution: './APITempoDIO/*.sln'
-  solution: '$(System.DefaultWorkingDirectory)/APITempoDIO/*.sln'
+  solution: 'C:\Users\valdir\devcode\dio\bootcamp-az-204\implementar-api-na-nuvem\DIO-API\APITempoDIO\*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
