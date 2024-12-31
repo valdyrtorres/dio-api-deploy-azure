@@ -8,6 +8,8 @@ trigger:
 
 #pool:
 #  vmImage: ubuntu-latest
+# self-hosted por conta do paralelismo que não é liberado para contas gratuitas ou trial
+# a Microsoft trancou os pedidos até janeiro de 2025
 pool:
   name: MeuAgentPool
   
