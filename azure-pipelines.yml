@@ -6,33 +6,27 @@
 trigger:
 - main
 
+#pool:
+#  vmImage: ubuntu-latest
 pool:
-  vmImage: ubuntu-latest
-
+  name: MeuAgentPool
+  
 variables:
-  solution: './APITempoDIO/*.sln'
+  #solution: './APITempoDIO/*.sln'
+  solution: 'C:\Users\valdir\devcode\dio\bootcamp-az-204\implementar-api-na-nuvem\DIO-API\APITempoDIO\APITempoDIO.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-stages:
-- stage: InstallAndRestore
-  displayName: 'Instalar e Restaurar'
-  jobs:
-  - job: InstallRestoreJob
-    steps:
-    - task: UseDotNet@2
-      displayName: "Install .Net SDK"
-      inputs:
-        packageType: 'sdk'
-        version: '8.x'
-    - script: dotnet restore $(solution)
-      displayName: 'Restore Solution'
+steps:
+    
+- task: UseDotNet@2
+  displayName: "Install. .Net SDK"
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
 
-- stage: Build
-  displayName: 'Construir Solução'
-  dependsOn: InstallAndRestore # Depende do estágio InstallAndRestore
-  jobs:
-  - job: BuildJob
-    steps:
-    - script: dotnet build $(solution) --configuration $(buildConfiguration)
-      displayName: 'Build Solution'
+- script: dotnet restore $(solution)
+  displayName: 'Restore Solution'
+  
+- script: dotnet build $(solution) --configuration $(buildConfiguration)
+  displayName: 'Build Solution'
