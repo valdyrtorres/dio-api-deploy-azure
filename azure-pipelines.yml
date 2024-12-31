@@ -30,3 +30,11 @@ steps:
   
 - script: dotnet build $(solution) --configuration $(buildConfiguration)
   displayName: 'Build Solution'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'acrapidemovtbsc'
+    repository: 'api-dio-test'
+    command: 'buildAndPush'
+    Dockerfile: 'C:\Users\valdir\devcode\dio\bootcamp-az-204\implementar-api-na-nuvem\DIO-API\APITempoDIO\APITempoDIO\**Dockerfile'
+
