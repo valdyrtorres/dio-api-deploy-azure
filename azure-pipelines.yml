@@ -17,6 +17,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- powershell: |
+    $PSVersionTable
+    Get-Module -ListAvailable | Where-Object { $_.Name -like "*Security*" }
+  displayName: 'Diagnóstico do PowerShell'
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
